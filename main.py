@@ -1,26 +1,39 @@
+import os
+import random
+import math
 import pygame
+from os import listdir
+from os.path import isfile, join
+from player import *
 
-# pygame setup
 pygame.init()
-screen = pygame.display.set_mode((320, 184))
-clock = pygame.time.Clock()
-running = True
 
-while running:
-    #poll for events
-    # pygame.QUIT event means the user clicked X to close your window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+pygame.display.set_caption("Platformer")
 
-    # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+BG_COLOR = (255, 255, 255)
+WIDTH, HEIGHT = 1000, 800
+FPS = 60
+PLAYER_VEL = 5
 
-    # RENDER YOUR GAME HERE
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 
-    # flip the screen with a color to wipe away anything from last frame
-    pygame.display.flip()
 
-    clock.tick(60) # limits FPS to 60
+def main(window):
+    clock = pygame.time.Clock()
 
-pygame.quit()
+    
+
+    run = True
+    while run:
+        # regulates the framerate
+        clock.tick(FPS)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                break
+
+
+
+if __name__ == "__main__":
+    main(window)
